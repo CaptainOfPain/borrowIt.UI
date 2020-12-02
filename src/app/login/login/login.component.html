@@ -1,0 +1,112 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div *ngIf="isLoginView" class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Login</h4>
+            <p class="card-category">Provide your credentials</p>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                  <mat-form-field class="example-full-width">
+                    <input #userName matInput placeholder="User name">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                  <mat-form-field class="example-full-width">
+                    <input #password type="password" matInput placeholder="Password">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+              <a class="clickable-underlined" (click)="isLoginView = !isLoginView">Register an account</a>
+              <button (click)="login(userName.value, password.value)" mat-raised-button type="submit" class="btn btn-danger pull-right">Login</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="!isLoginView" class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Register</h4>
+            <p class="card-category">Register your account</p>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input #userName matInput placeholder="User name">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input #email matInput placeholder="Email">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input #password type="password" matInput placeholder="Password">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input #confirmPassword type="password" matInput placeholder="Confirm password">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input #firstName matInput placeholder="First name">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input #lastName matInput placeholder="Last name">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input #birthDate type="date" matInput placeholder="Birth date">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input #city matInput placeholder="City">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input #street matInput placeholder="Street">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input #postalCode matInput placeholder="Postal code">
+                  </mat-form-field>
+                </div>
+              </div>
+              <a class="clickable-underlined" (click)="isLoginView = !isLoginView">Login</a>
+              <button (click)="register(userName.value, email.value, password.value, confirmPassword.value, birthDate.value, firstName.value, lastName.value, city.value, street.value, postalCode.value)" mat-raised-button type="submit" class="btn btn-danger pull-right">Register</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>

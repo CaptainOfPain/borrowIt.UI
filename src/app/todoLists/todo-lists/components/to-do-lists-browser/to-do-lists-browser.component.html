@@ -1,0 +1,36 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngFor="let toDoList of data" class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">{{toDoList.name}}</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="card-category">Deadline: {{toDoList.finishUntilDate | date:'short'}}, Status: {{status[toDoList.status]}}</p>
+                            </div>
+                            <div class="col-md-6 pull-right">
+                                <button mat-raised-button *ngIf="toDoList.status == status.InProgress || toDoList.status == status.Created" type="submit" (click)="cancelList(toDoList)" class="btn btn-primary pull-right">Cancel</button>
+                                <button mat-raised-button *ngIf="toDoList.status == status.InProgress" type="submit" (click)="holdList(toDoList)" class="btn btn-primary pull-right">Hold</button>
+                                <button mat-raised-button *ngIf="toDoList.status == status.Created" type="submit" (click)="beginList(toDoList)" class="btn btn-primary pull-right">Begin</button>
+                                <button mat-raised-button *ngIf="toDoList.status == status.InProgress" type="submit" (click)="completeList(toDoList)" class="btn btn-primary pull-right">Complete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <app-to-do-list-details class="col-md-12" *ngIf="!isAddTaskView" (onTaskStatusChanged)="changeTaskStatus($event)" [listId]="toDoList.id" [tasks]="toDoList.tasks"></app-to-do-list-details>
+                            <app-add-task class="col-md-12" *ngIf="isAddTaskView" [listId]="toDoList.id" (onTaskCreated)="taskCreated($event)" (onCancelled)="isAddTaskView = false"></app-add-task>
+                        </div>
+                        <div class="row">
+                        </div>
+                        <button mat-raised-button type="submit"
+                            class="btn btn-success pull-right" (click)="isAddTaskView = true">Add task</button>
+                        <button *ngIf="toDoList.status != status.Archived || toDoList.status != status.Done" mat-raised-button type="submit" (click)="removeList(toDoList)"
+                            class="btn btn-danger pull-right">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

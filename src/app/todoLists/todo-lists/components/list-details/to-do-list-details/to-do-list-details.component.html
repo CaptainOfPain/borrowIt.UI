@@ -1,0 +1,24 @@
+<div class="row">
+    <div *ngFor="let task of tasks" class="col-md-4">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">{{task.name}}</h4>
+                <p class="card-category">Status: {{status[task.status]}}</p>
+            </div>
+            <div class="card-body">
+                <div>
+                    {{task.description}}
+                </div>
+                <div>
+                    <button mat-raised-button *ngIf="task.status == status.Created" type="submit" (click)="beginTask(task)" class="btn btn-primary">Begin</button>
+                    <button mat-raised-button *ngIf="task.status == status.InProgress" type="submit" (click)="completeTask(task)" class="btn btn-primary">Complete</button>
+                    <button mat-raised-button *ngIf="task.status == status.InProgress" type="submit" (click)="holdTask(task)" class="btn btn-primary">Hold</button>
+                    <button mat-raised-button *ngIf="task.status == status.InProgress || task.status == status.Created" type="submit" (click)="cancelTask(task)" class="btn btn-primary">Cancel</button>
+                </div>
+                <div>
+                    <button mat-raised-button *ngIf="task.status != status.Archived && task.status != status.Done" (click)="removeTask(task)" type="submit" class="btn btn-danger pull-right">Archive</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <button mat-raised-button (click)="isListView = false" type="submit" class="btn btn-primary pull-right">Add new list</button>
+        </div>
+        <div>
+            <app-add-list *ngIf='!isListView' (finished)="isListView = !$event"></app-add-list>
+            <app-to-do-lists-browser 
+                *ngIf='isListView' 
+                [data]="data" 
+                (onTaskStatusChanged)="changeTaskStatus($event)" 
+                (onTaskCreated)="addTask($event)"
+                (onListStatusChanged)="changeListStatus($event)"></app-to-do-lists-browser>
+        </div>
+    </div>
+</div>
