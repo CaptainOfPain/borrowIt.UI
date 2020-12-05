@@ -9,7 +9,6 @@
             <p class="card-category">Provide your credentials</p>
           </div>
           <div class="card-body">
-            <form>
               <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
@@ -29,9 +28,8 @@
                 <div class="col-md-2"></div>
               </div>
               <a class="clickable-underlined" (click)="isLoginView = !isLoginView">Register an account</a>
-              <button (click)="login(userName.value, password.value)" mat-raised-button type="submit" class="btn btn-danger pull-right">Login</button>
+              <button (click)="login(userName.value, password.value)" mat-raised-button class="btn btn-danger pull-right">Login</button>
               <div class="clearfix"></div>
-            </form>
           </div>
         </div>
         <div *ngIf="!isLoginView" class="card">
@@ -40,7 +38,6 @@
             <p class="card-category">Register your account</p>
           </div>
           <div class="card-body">
-            <form>
               <div class="row">
                 <div class="col-md-6">
                   <mat-form-field class="example-full-width">
@@ -100,9 +97,8 @@
                 </div>
               </div>
               <a class="clickable-underlined" (click)="isLoginView = !isLoginView">Login</a>
-              <button (click)="register(userName.value, email.value, password.value, confirmPassword.value, birthDate.value, firstName.value, lastName.value, city.value, street.value, postalCode.value)" mat-raised-button type="submit" class="btn btn-danger pull-right">Register</button>
+              <button (click)="register(userName.value, email.value, password.value, confirmPassword.value, birthDate.value, firstName.value, lastName.value, city.value, street.value, postalCode.value)" mat-raised-button class="btn btn-danger pull-right">Register</button>
               <div class="clearfix"></div>
-            </form>
           </div>
         </div>
       </div>

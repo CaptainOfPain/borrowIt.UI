@@ -57,7 +57,10 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true })
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production,
+      registrationStrategy: "registerImmediately"
+  })
   ],
   declarations: [
     AppComponent,

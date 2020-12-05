@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseApiUrl: "http://localhost:8080/api/",
-  baseNotificationsApiUrl: "http://localhost:5000/api/"
+  baseApiUrl: "http://51.11.124.165:8080/api/",
+  baseNotificationsApiUrl: "http://51.11.125.11:8079/api/"
 };

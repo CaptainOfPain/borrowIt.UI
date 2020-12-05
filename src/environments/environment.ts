@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   baseApiUrl: "http://localhost:8080/api/",
-  baseNotificationsApiUrl: "http://localhost:5000/api/"
+  baseNotificationsApiUrl: "http://localhost:8079/api/"
 };
